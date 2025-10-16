@@ -1,6 +1,10 @@
 package com.parking_system.io.models;
 
 public enum SlotFilterType {
-    AVAIlABLE,
-    VEHICLE,
+    ALL,
+    AVAILABLE,
+    TYPE,
+    AVAILABLE_AND_TYPE
 }
+
+

@@ -3,6 +3,7 @@ package com.parking_system.io.service;
 import com.parking_system.io.factory.ParkingSlotFilterFactory;
 import com.parking_system.io.models.ParkingSlot;
 import com.parking_system.io.models.SlotFilterType;
+import com.parking_system.io.models.VehicleType;
 import com.parking_system.io.repository.ParkingSlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class ParkingSlotService {
         parkingSlotRepository.save(parkingSlot);
     }
 
-    public List<ParkingSlot> getAllSlots(SlotFilterType filterType){
-        return parkingSlotFilterFactory.getStrategy(filterType).filter();
+    public List<ParkingSlot> getAllSlots(Boolean available, VehicleType type){
+        return parkingSlotFilterFactory.getStrategy(available, type).filter();
     }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VehicleService {
@@ -16,7 +17,7 @@ public class VehicleService {
         vehicleRepository.save(vehicle);
     }
 
-    public Vehicle getVehicleById(String licensePlate) {
+    public Optional<Vehicle> getVehicleById(String licensePlate) {
        return vehicleRepository.findByLicensePlate(licensePlate);
     }
 

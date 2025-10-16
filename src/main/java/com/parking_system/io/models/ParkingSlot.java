@@ -11,9 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "parking_slots", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "license_plate")
-})
+@Table(name = "parking_slots")
 public class ParkingSlot {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +19,7 @@ public class ParkingSlot {
     @Column(name = "slot_number", nullable = false, unique = true)
     private String slotNumber;
     @Enumerated(EnumType.STRING)
-    private SlotType slotType;
+    private VehicleType vehicleType;
     @Column(name = "is_available", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean isAvailable = true;
 }
